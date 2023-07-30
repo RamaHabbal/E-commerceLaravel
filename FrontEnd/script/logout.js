@@ -23,4 +23,9 @@ window.addEventListener("load", () => {
       console.log(error);
     }
   });
+  const cart = document.getElementById("cartPage");
+  cart.addEventListener("click",() =>{
+    window.location.href = "/pages/cart.html"
+  })
+
 });
