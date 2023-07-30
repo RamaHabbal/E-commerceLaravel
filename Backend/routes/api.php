@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
@@ -10,6 +11,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
 });
+Route::post('/user_cart/{user_id}',[CartController::class,'addCart']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
