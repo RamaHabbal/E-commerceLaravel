@@ -45,6 +45,9 @@ window.addEventListener('load', () =>{
                 
                     window.location.href = "/pages/products.html";
                 }
+                else{ 
+                    window.location.href = "/pages/dashboard.html"
+                }
             }
 
         } catch (error) {

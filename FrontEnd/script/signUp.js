@@ -53,5 +53,4 @@ window.addEventListener('load', () => {
       }
     }
   });
-  // const sd =localStorage.getItem("cart_id")
-  // console.log(sd);
+
