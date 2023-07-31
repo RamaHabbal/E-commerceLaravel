@@ -42,6 +42,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cart_id');
             $table->unsignedBigInteger('product_id');
             $table->integer('quantity')->default(1);
+            $table->unique(['cart_id', 'product_id']);
             
         });
 

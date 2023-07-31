@@ -23,6 +23,8 @@ Route::get('/get_cart/{cart_id}',[CartItemController::class,'getCart']);
 Route::get('/products',[ProductController::class,'getProducts']);
 Route::get('/get_category',[ProductController::class,'getProductCategories']);
 Route::delete('/deleteProduct/{product_id}',[ProductController::class,'deleteProduct']);
+Route::post('/add_product', [ProductController::class, 'addProduct']);
+
 
 
 

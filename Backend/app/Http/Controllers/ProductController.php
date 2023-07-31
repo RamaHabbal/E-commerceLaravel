@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -23,5 +24,31 @@ class ProductController extends Controller
         DB::table('products')->where('id', $product_id)->delete();
         return response()->json(['message' => 'Product deleted']);
      }
+     function addProduct(Request $request){
 
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $image = $request->input('image');
+        $price = $request->input('price');
+        $categoryName = $request->input('category_name');
+
+        $categoryId = DB::table('categories')
+            ->where('name', $categoryName)
+            ->value('id');
+
+        $toadd = [
+            'name' => $name,
+            'description' => $description,
+            'image' => $image,
+            'price' => $price,
+            'category_id' => $categoryId,
+        ];
+    
+        DB::table('products')->insert($toadd);
+    
+    
+        return response()->json(['message' => 'Product added successfully']);
+      
+        // return response()->json(['message' => 'Failed to add product']);
+    }
 }
