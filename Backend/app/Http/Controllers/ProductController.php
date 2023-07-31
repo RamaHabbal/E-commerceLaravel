@@ -19,5 +19,9 @@ class ProductController extends Controller
 
         return response()->json($productCategory);
      }
+     function deleteProduct($product_id){
+        DB::table('products')->where('id', $product_id)->delete();
+        return response()->json(['message' => 'Product deleted']);
+     }
 
 }
