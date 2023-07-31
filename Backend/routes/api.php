@@ -14,10 +14,14 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
 });
 Route::post('/user_cart/{user_id}',[CartController::class,'addCart']);
-Route::get('/products',[ProductController::class,'getProducts']);
+Route::get('/get-cart-id/{user_id}', [CartController::class, 'getCartId']);
+
+
 Route::post('/add_cart',[CartItemController::class,'addToCart']);
 Route::get('/get_cart/{cart_id}',[CartItemController::class,'getCart']);
-Route::get('/get-cart-id/{user_id}', [CartController::class, 'getCartId']);
+
+Route::get('/products',[ProductController::class,'getProducts']);
+Route::get('/get_category',[ProductController::class,'getProductCategories']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
