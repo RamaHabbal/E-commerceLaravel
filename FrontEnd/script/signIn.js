@@ -28,12 +28,21 @@ window.addEventListener('load', () =>{
             } else {
                 localStorage.setItem("user", JSON.stringify(data.user));
                 localStorage.setItem("authorization", JSON.stringify(data.authorization));
-                localStorage.setItem("cart", JSON.stringify(data.cart));
 
-                
-
+                const user_id = data.user.id
 
                 if (data.user.role === "customer") {
+                
+
+                    const res = await fetch(`http://127.0.0.1:8000/api/get-cart-id/${user_id}`, {
+                        method: 'GET',
+                    });
+                    const data = await res.json()
+                    const cart_id = data.cart_id
+                    
+                    localStorage.setItem("cart_id",cart_id)
+                    console.log(cart_id);
+                
                     window.location.href = "/pages/products.html";
                 }
             }
@@ -43,3 +52,5 @@ window.addEventListener('load', () =>{
         }
     });
 });
+const sd =localStorage.getItem("cart_id")
+console.log(sd);

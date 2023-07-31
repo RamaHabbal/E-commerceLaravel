@@ -22,9 +22,9 @@ window.addEventListener('load', () => {
         });
   
         const data = await response.json();
-        // console.log(data.user.id)
-        const userId = data.user.id;
         if (data.message === "User created successfully") {
+        const userId = data.user.id;
+
           createdCartForUser(userId);
           window.location.href = "/pages/signIn.html";
   
@@ -39,22 +39,19 @@ window.addEventListener('load', () => {
       }
     });
   
-    async function createdCartForUser(userId) {
-    //   console.log(userId);
+    async function createdCartForUser(user_id) {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/api/user_cart/${userId}`, {
+        const response = await fetch(`http://127.0.0.1:8000/api/user_cart/${user_id}`, {
           method: 'POST',
         });
         const data = await response.json();
         console.log(data);
-        console.log('cart created', userId);
-        localStorage.setItem("cart", JSON.stringify(data.cart.id));
-        
-
-  
+        console.log('cart created', user_id);
+    
       } catch (error) {
         console.log('error', error);
       }
     }
   });
-  
+  // const sd =localStorage.getItem("cart_id")
+  // console.log(sd);

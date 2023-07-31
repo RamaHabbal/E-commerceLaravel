@@ -110,7 +110,7 @@ a {
     cursor: pointer;
 }
 
-.cart {
+.cartPage {
     display: flex;
     align-self: center;
     padding: 1rem;
