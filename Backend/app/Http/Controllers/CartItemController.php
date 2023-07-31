@@ -1,16 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\CartItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartItemController extends Controller
 {
-    public function addToCart(Request $request){
+    function addToCart(Request $request)
+    {
         // Check if the item is already in the cart for the cart_id
         $cartItem = CartItem::where('cart_id', $request->cart_id)
-                            ->where('product_id', $request->product_id)
-                            ->first();
+            ->where('product_id', $request->product_id)
+            ->first();
 
         // If the item is already in the cart, update the quantity
         if ($cartItem) {
@@ -28,4 +31,16 @@ class CartItemController extends Controller
 
         return response()->json(['message' => 'Item added to the cart successfully', 'cart_item' => $cartItem]);
     }
+    function getCart($cart_id)
+    {
+        $cartItems = DB::table('cart_items')
+            ->join('products', 'cart_items.product_id', '=', 'products.id')
+            ->where('cart_items.cart_id', $cart_id)
+            ->select('cart_items.id', 'cart_items.cart_id', 'cart_items.product_id', 'cart_items.quantity',  'products.*')
+            ->get();
+
+            return response()->json(['cart_items' => $cartItems]);
+ 
+    }
+
 }

@@ -18,4 +18,12 @@ class CartController extends Controller
             'message'=>'Succefully cart created'
         ]);
     }
+    function getCartId($user_id)
+    {
+        $cart = Cart::where('user_id', $user_id)->first();
+
+        return response()->json([
+            'cart_id' => $cart->id,
+        ]);
+    }
 }
