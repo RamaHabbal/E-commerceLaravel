@@ -48,6 +48,9 @@ window.addEventListener('load', () => {
         const data = await response.json();
         console.log(data);
         console.log('cart created', userId);
+        localStorage.setItem("cart", JSON.stringify(data.cart.id));
+        
+
   
       } catch (error) {
         console.log('error', error);

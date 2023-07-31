@@ -28,6 +28,10 @@ window.addEventListener('load', () =>{
             } else {
                 localStorage.setItem("user", JSON.stringify(data.user));
                 localStorage.setItem("authorization", JSON.stringify(data.authorization));
+                localStorage.setItem("cart", JSON.stringify(data.cart));
+
+                
+
 
                 if (data.user.role === "customer") {
                     window.location.href = "/pages/products.html";
