@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/styles/styleProducts.css">
+    <link rel="stylesheet" href="/src/styles/syleDashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -25,7 +26,7 @@
             <div id="logout" class="navItem"><a>Logout</a></div>
 
         </div>
-        <div id="cartPage" ><img src="/src/images/cart.png" alt="cartimage"></div>
+        <div id="cartPage"><img src="/src/images/cart.png" alt="cartimage"></div>
     </div>
     <div class="productContainer">
         <div class="productHeader">
@@ -37,10 +38,35 @@
         </div>
         <div class="productCardContainer1">
         </div>
+        <div class="createItem">
+            <div class="itemInputs">
+                <label>Add Product Image</label>
+                <input id="imgInput" type="file" id="imgInput" name="image" accept="image/*">
+            </div>
+            <div class="itemInputs">
+                <label>Add Product Name</label>
+                <input id="nameInput" class="nameInput" type="text">
+            </div>
+            <div class="itemInputs">
+                <label>Add Product Price</label>
+                <input id="priceInput" class="priceInput" type="text">
+            </div>
+            <div class="itemInputs">
+                <label>Add Product Description</label>
+                <input id="descriptionInput" class="descriptionInput" type="text">
+            </div>
+            <div class="itemInputs">
+                <label>Add Product Category</label>
+                <input id="categoryInput" class="categoryInput" type="text">
+            </div>
+            <div>
+                <button id="addBtn" class="addBtn">Add</button>
+            </div>
 
-        
+        </div>
+
     </div>
-    <script src="/script/logout.js"></script>
+    <!-- <script src="/script/logout.js"></script> -->
     <script src="/script/dashboard.js"></script>
     <!-- <script src="/script/cart.js"></script> -->
 
