@@ -31,7 +31,8 @@ window.addEventListener('load', () => {
             <p class="productDetails"> ${description}</p>
             <div class="cartPrice">
                 <p class="productPrice">${price}</p>
-                <button class="cart"  data-product-id="${product_Id}">Edit</button>
+                <button   class="editBtn"   data-product-id="${product_Id}">Edit</button>
+                <button   class="deleteBtn" data-product-id="${product_Id}">Delete</button>
             </div>
         </div>
             
@@ -45,8 +46,8 @@ window.addEventListener('load', () => {
             <p class="productDetails"> ${description}</p>
             <div class="cartPrice">
                 <p class="productPrice">${price}</p>
-                <button class="cart"  data-product-id="${product_Id}">Edit</button>
-                <button class="cart"data-product-id="${product_Id}">Delete</button>
+                <button class="editBtn" data-product-id="${product_Id}">Edit</button>
+                <button class="deleteBtn" data-product-id="${product_Id}">Delete</button>
             </div>
         </div>
             
@@ -59,7 +60,18 @@ window.addEventListener('load', () => {
         const unscentedSection = document.querySelector(".productCardContainer1");
         unscentedSection.innerHTML += unscented.join("");
     
-    
+        const deleteBtns = document.querySelectorAll(".deleteBtn");
+        deleteBtns.forEach((btn) =>{
+            btn.addEventListener("click",async()=>{
+            const product_Id = btn.dataset.productId;
+            const response = await fetch(`http://127.0.0.1:8000/api/deleteProduct/${product_Id}`,{
+                method: "DELETE",
+            })
+                const message = await response.json()
+                console.log(message);
+                window.location.href = "dashboard.html"
+            })
+        });
         
       } catch (error) {
         console.log(error);
