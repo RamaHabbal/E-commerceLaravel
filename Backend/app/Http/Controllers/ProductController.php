@@ -49,6 +49,33 @@ class ProductController extends Controller
     
         return response()->json(['message' => 'Product added successfully']);
       
-        // return response()->json(['message' => 'Failed to add product']);
     }
-}
+    function updateProduct(Request $request, $product_id)
+    {
+        $product = Product::find($product_id);
+    
+        if (!$product) {
+            return response()->json(['message' => 'Product not found'], 404);
+        }
+    
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->price = $request->input('price');
+    
+        $categoryName = $request->input('category_name');
+        $category = DB::table('categories')
+            ->where('name', $categoryName)
+            ->first();
+    
+        if (!$category) {
+            return response()->json(['message' => 'Invalid category specified'], 422);
+        }
+    
+        $product->category_id = $category->id;
+        $product->image = $request->input('image');
+        $product->save();
+    
+        return response()->json(['message' => 'Product updated successfully', 'data' => $product], 200);
+    }
+    
+    }
