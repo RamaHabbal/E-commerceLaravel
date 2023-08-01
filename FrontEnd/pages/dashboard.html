@@ -36,6 +36,8 @@
         <div class="productCardContainer">
 
         </div>
+  
+        </div>
         <div class="productCardContainer1">
         </div>
         <div class="createItem">
@@ -64,6 +66,23 @@
             </div>
 
         </div>
+        <div class="productCard1">
+            <input type="file" id="editImage" accept="image/*"><img class="productImage">
+            <p class="productName">Name</p>
+            <input type="text" id="editName">
+            <p class="productName">Category</p>
+            <input type="text" id="editCategory">
+            <p class="productDetail"> Description</p>
+            <input type="text" id="editDesc">
+            <div class="cartPrice">
+                <p class="productPrice">Price</p>
+                <input type="text" id="editPrice">
+                <button class="editBtn" data-product-id="${product_Id}">Edit</button>
+                <button class="deleteBtn" data-product-id="${product_Id}">Delete</button>
+            </div>
+        </div>
+
+
 
     </div>
     <!-- <script src="/script/logout.js"></script> -->

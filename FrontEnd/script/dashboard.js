@@ -105,4 +105,48 @@ window.addEventListener("load", async () => {
     };
     reader.readAsDataURL(fileInput);
   });
+
+
+  // const editBtns = document.getElementById("editBtn")
+  // editBtns.addEventListener("click", async()=>{
+  //   const fileInput = document.getElementById("editImage").files[0];
+  //   const name = document.getElementById("editName");
+  //   const price = document.getElementById("editPrice");
+  //   const description = document.getElementById("editDesc");
+  //   const category = document.getElementById("editCategory");
+  //   const product_id = button.dataset.productId;
+
+  //   let imageString;
+  //   const reader = new FileReader();
+
+  //     fileReader.onload = async function(event) {
+  //       imageString = event.target.result;
+        
+
+  //       const updateData = {
+  //         name: name.value,
+  //         price: price.value,
+  //         description: description.value,
+  //         category_name: category.value,
+  //         image:imageString
+  //       };
+
+  //       const updateresponse = await fetch(`http://127.0.0.1:8000/api/updateProduct/${product_id}`, {
+  //       method: 'POST', 
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(updateData),
+  //       });
+        
+  //       window.location.href = "dashboard.html"
+
+
+  //   };
+
+  //   reader.readAsDataURL(fileInput);
+
+  // })
+
+  
 });
